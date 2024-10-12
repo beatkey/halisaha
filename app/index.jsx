@@ -1,0 +1,7 @@
+import Auth from "./auth";
+
+export default function App() {
+   return <>
+      <Auth/>
+   </>
+}
