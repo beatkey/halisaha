@@ -1,12 +1,13 @@
 import {router, Slot, Stack, Tabs} from "expo-router";
-import {Text} from "react-native";
-import {ArrowBackIcon, Button} from "native-base";
+import {Text, TouchableOpacity} from "react-native";
+import {ArrowBackIcon, Button, IconButton} from "native-base";
+import {Ionicons} from "@expo/vector-icons";
 
 export default function AuthLayout() {
    return <>
       <Stack
          screenOptions={{
-            headerStyle: { backgroundColor: "#6200ee" }, // İsteğe bağlı: başlık arka plan rengi
+            headerStyle: {backgroundColor: "#000"}, // İsteğe bağlı: başlık arka plan rengi
             headerTintColor: "#fff", // İsteğe bağlı: başlık metni rengi
             animationEnabled: true, // Geçiş animasyonunu etkinleştir
          }}
@@ -14,18 +15,25 @@ export default function AuthLayout() {
          <Stack.Screen
             name="index"
             options={{
+               title: "",
                headerShown: false, // Başlığı gizle
             }}
          />
          <Stack.Screen
             name="login"
             options={{
-               title: "Settings",
+               title: "Giriş Yap",
                headerLeft: () => (
-                  <Button onPress={() => router.push("/auth")} colorScheme="secondary">
-                     Back
-                  </Button>
+                  <TouchableOpacity onPress={() => router.navigate("/auth")}>
+                     <Ionicons name="arrow-back" size={24} color="white" />
+                  </TouchableOpacity>
                ),
+            }}
+         />
+         <Stack.Screen
+            name="register"
+            options={{
+               title: "Kayıt Ol",
             }}
          />
       </Stack>

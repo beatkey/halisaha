@@ -21,13 +21,14 @@ export default function Auth() {
                      </TouchableOpacity>
                   </Link>
 
-                  <TouchableOpacity
-                     activeOpacity={0.7}
-                     className="bg-white rounded-lg w-10/12"
-                     onPress={() => alert('Butona tıkladınız!')}
-                  >
-                     <Text className="text-black text-center font-bold py-4">Üye Ol</Text>
-                  </TouchableOpacity>
+                  <Link href={"/auth/register"} asChild>
+                     <TouchableOpacity
+                        activeOpacity={0.7}
+                        className="bg-white rounded-lg w-10/12"
+                     >
+                        <Text className="text-black text-center font-bold py-4">Üye Ol</Text>
+                     </TouchableOpacity>
+                  </Link>
                </View>
             </ImageBackground>
          </View>
