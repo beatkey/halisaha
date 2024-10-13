@@ -5,29 +5,23 @@ import {Ionicons} from "@expo/vector-icons";
 
 export default function AuthLayout() {
    return <>
-      <Stack
-         screenOptions={{
-            headerStyle: {backgroundColor: "#000"}, // İsteğe bağlı: başlık arka plan rengi
-            headerTintColor: "#fff", // İsteğe bağlı: başlık metni rengi
-            animationEnabled: true, // Geçiş animasyonunu etkinleştir
-         }}
-      >
+      <Stack>
          <Stack.Screen
             name="index"
             options={{
-               title: "",
-               headerShown: false, // Başlığı gizle
+               headerShown: false,
+               title: ""
             }}
          />
          <Stack.Screen
             name="login"
             options={{
                title: "Giriş Yap",
-               headerLeft: () => (
+               /*headerLeft: () => (
                   <TouchableOpacity onPress={() => router.navigate("/auth")}>
-                     <Ionicons name="arrow-back" size={24} color="white" />
+                     <Ionicons name="arrow-back" size={24} color="black"/>
                   </TouchableOpacity>
-               ),
+               ),*/
             }}
          />
          <Stack.Screen

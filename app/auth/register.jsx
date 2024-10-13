@@ -1,4 +1,6 @@
 import {Box, Button, Center, FormControl, Heading, HStack, Input, NativeBaseProvider, VStack} from "native-base";
+import {Text} from "react-native";
+import {Link} from "expo-router";
 
 export default function Register() {
    return <>
@@ -20,6 +22,20 @@ export default function Register() {
                <Button mt="2" colorScheme="indigo">
                   Kayıt Ol
                </Button>
+               <HStack mt="6" justifyContent="center">
+                  <Text fontSize="sm" color="coolGray.600" _dark={{
+                     color: "warmGray.200"
+                  }}>
+                     Hesabım var.{" "}
+                  </Text>
+                  <Link className={"underline"} _text={{
+                     color: "indigo.500",
+                     fontWeight: "medium",
+                     fontSize: "sm",
+                  }} href="/auth/login">
+                     Giriş Yap
+                  </Link>
+               </HStack>
             </VStack>
          </Box>
       </Center>
