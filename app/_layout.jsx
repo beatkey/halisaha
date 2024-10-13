@@ -1,40 +1,76 @@
-import {Slot, Stack, useRouter} from "expo-router";
-import {NativeBaseProvider} from "native-base";
-import Toast from 'react-native-toast-message';
+import {Redirect, Slot, Stack} from "expo-router";
 
 import "../global.css"
+import store from "../src/stores";
+import {extendTheme, NativeBaseProvider} from "native-base";
+import Toast from "react-native-toast-message";
+import {Provider} from "react-redux";
+import {Text} from "react-native";
+import {useUser} from "../src/stores/hooks";
+import {useFonts} from "expo-font";
 import {useEffect} from "react";
+import {SplashScreen} from "expo-router";
 
 export default function AppLayout() {
-   const router = useRouter();
-   const isLoggedIn = false;
-
-   if (isLoggedIn) {
-      router.replace("/account");
-   } else {
-      router.replace("/auth");
-   }
-
    return <>
-      <NativeBaseProvider>
+      <Provider store={store}>
+         <NativeBaseProvider>
+            <AuthCheck>
+               <Stack>
+                  <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
+                  {/*<Stack.Screen
+                     name="account"
+                     options={{
+                        title: "Hesabım"
+                     }}
+                  />
+
+                  <Stack.Screen
+                     name="home"
+                     options={{
+                        headerShown: false
+                     }}
+                  />*/}
+               </Stack>
+            </AuthCheck>
+            <Toast topOffset={110}/>
+         </NativeBaseProvider>
+      </Provider>
+   </>
+}
+
+function AuthCheck({children}) {
+   const user = useUser()
+
+   if (!user) {
+      return <>
+         <Redirect href={"/"}/>
          <Stack>
             <Stack.Screen
                name="index"
                options={{
+                  title: "",
                   headerShown: false
                }}
             />
             <Stack.Screen
-               name="auth"
+               name="auth/login"
                options={{
-                  headerShown: false
+                  title: "Giriş Yap"
                }}
             />
             <Stack.Screen
-               name="account"
+               name="auth/register"
+               options={{
+                  title: "Kayıt Ol"
+               }}
             />
          </Stack>
-         <Toast topOffset={110}/>
-      </NativeBaseProvider>
+      </>
+   }
+
+   return <>
+      <Redirect href={"/(tabs)"}/>
+      {children}
    </>
 }

@@ -11,9 +11,9 @@ import {
    VStack
 } from "native-base";
 import {Link} from "expo-router";
-import useToast from "../../hooks/useToast";
+import useToast from "../../src/hooks/useToast";
 import {useState} from "react";
-import {validateEmail, validatePassword} from "../../utils";
+import {validateEmail, validatePassword} from "../../src/utils";
 
 export default function Login() {
    const toast = useToast()
