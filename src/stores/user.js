@@ -20,7 +20,12 @@ const getToken = async () => {
 
 const initialState = {
    //user: getToken() || false
-   user: true
+   user: {
+      name: "Ricardo Quaresma",
+      email: "emrecaal@gmail.com",
+      password: "123123",
+      position: "Sol Açık"
+   }
 }
 
 const slice = createSlice({

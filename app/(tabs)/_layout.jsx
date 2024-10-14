@@ -1,5 +1,6 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import {Stack, Tabs} from 'expo-router';
+import {MaterialCommunityIcons} from "@expo/vector-icons";
 
 export default function TabLayout() {
    return (
@@ -17,7 +18,7 @@ export default function TabLayout() {
             options={{
                title: 'Hesabım',
                headerShown: false,
-               tabBarIcon: ({color}) => <FontAwesome size={28} name="cog" color={color}/>,
+               tabBarIcon: ({color}) => <MaterialCommunityIcons size={28} name="account" color={color}/>,
             }}
          />
       </Tabs>

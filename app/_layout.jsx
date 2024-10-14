@@ -17,20 +17,25 @@ export default function AppLayout() {
          <NativeBaseProvider>
             <AuthCheck>
                <Stack>
-                  <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
-                  {/*<Stack.Screen
-                     name="account"
-                     options={{
-                        title: "Hesabım"
-                     }}
-                  />
-
                   <Stack.Screen
-                     name="home"
+                     name="(tabs)"
                      options={{
+                        title: "Anasayfa",
                         headerShown: false
                      }}
-                  />*/}
+                  />
+                  <Stack.Screen
+                     name="players/index"
+                     options={{
+                        title: "Oyuncular",
+                     }}
+                  />
+                  <Stack.Screen
+                     name="matches/index"
+                     options={{
+                        title: "Maçlar",
+                     }}
+                  />
                </Stack>
             </AuthCheck>
             <Toast topOffset={110}/>
