@@ -25,7 +25,7 @@ export default function AppLayout() {
                      }}
                   />
                   <Stack.Screen
-                     name="players/index"
+                     name="players"
                      options={{
                         title: "Oyuncular",
                      }}
